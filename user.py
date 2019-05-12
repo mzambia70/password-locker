@@ -2,6 +2,11 @@ import random
 import pickle
 
 info = {}
+
+with open("pass-display.mz","br") as readfile:
+    info = pickle.load(readfile)
+
+
 s = "abcdefghiklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()?"
 len_password = int(input("enter number of letters in password:"))
 
@@ -13,9 +18,9 @@ if("yes" in answer):
     account_name = input("enter name of account: ")
     info[account_name] = password
     with open("pass-display.mz","bw") as filewrite:
-        pickle.dump(info,filewrite)
+        pickle.dump(info,filewrite, protocol=2)
 
-        
+
 
 else:
     print("ok")
