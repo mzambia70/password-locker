@@ -1,4 +1,5 @@
 import pickle
+import pyperclip
 
 m_password = input("enter master password: ")
 
@@ -8,4 +9,11 @@ if (m_password == "elchapo"):
          info = pickle.load(readfile)
 
      if account_name in info:
-         print("password =",info[account_name])
+         pyperclip.copy(info[account_name])
+         print("password copied")
+
+     else:
+         print("password not found")
+
+else:
+    print("password doesn't match")
