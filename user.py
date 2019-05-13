@@ -23,4 +23,9 @@ if("yes" in answer):
 
 
 else:
-    print("ok")
+    account_name = input("enter account name: ")
+    password = input("enter password: ")
+    info[account_name] = password
+    with open("pass-display.mz","bw") as filewrite:
+        pickle.dump(info,filewrite, protocol=2)
+    
